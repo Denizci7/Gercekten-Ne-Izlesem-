@@ -1,0 +1,211 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #e0e0e0; /* Light grey text for dark theme */
+    background-color: #121212; /* Fallback dark background */
+    /* Gradient background: Deep charcoal to dark indigo/purple */
+    background-image: linear-gradient(to bottom right, #2c3e50, #4a00e0);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background-color: rgba(0, 0, 0, 0.3); /* Semi-transparent header background */
+    color: #ffffff;
+    padding: 1.5em 0;
+    text-align: center;
+    border-bottom: 1px solid #444; /* Subtle border */
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+    font-weight: 300; /* Lighter font weight for a modern look */
+}
+
+main {
+    flex: 1; /* Allows main to grow and push footer down */
+    padding: 20px;
+    max-width: 1200px;
+    margin: 20px auto; /* Center main content */
+    width: 90%;
+}
+
+section {
+    background-color: rgba(25, 25, 25, 0.8); /* Slightly transparent dark cards for sections */
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+section h2 {
+    color: #90caf9; /* A light blue for section titles, good contrast on dark */
+    border-bottom: 2px solid #90caf9;
+    padding-bottom: 10px;
+    margin-top: 0;
+}
+
+footer {
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent footer */
+    color: #aaaaaa;
+    text-align: center;
+    padding: 1em 0;
+    border-top: 1px solid #444; /* Subtle border */
+    width: 100%;
+}
+
+/* Basic responsive design consideration */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2em;
+    }
+    main {
+        padding: 10px;
+        width: 95%;
+    }
+    section {
+        padding: 15px;
+    }
+}
+
+/* Form Styling */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #bb86fc; /* A light purple for labels, stands out on dark theme */
+    font-weight: 500;
+}
+
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    background-color: rgba(50, 50, 50, 0.9); /* Darker input background */
+    color: #e0e0e0;
+    border: 1px solid #555; /* Subtle border for inputs */
+    border-radius: 5px;
+    box-sizing: border-box; /* So padding doesn't expand width */
+    font-size: 1em;
+}
+
+.form-group textarea {
+    resize: vertical; /* Allow vertical resize, not horizontal */
+}
+
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #bb86fc; /* Highlight focus with label color */
+    box-shadow: 0 0 5px rgba(187, 134, 252, 0.5);
+}
+
+.submit-btn {
+    background-color: #bb86fc; /* Prominent button color - light purple */
+    color: #121212; /* Dark text for contrast on button */
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    display: block; /* Make it a block to center it or control width easily */
+    margin: 20px auto 0; /* Center button */
+}
+
+.submit-btn:hover {
+    background-color: #a06cd5; /* Slightly darker purple on hover */
+}
+
+.submit-btn:active {
+    transform: scale(0.98); /* Slight shrink effect on click */
+}
+
+/* Ensure inputs in sections don't overflow */
+#userInput form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Recommendations Output Styling */
+#recommendationsOutput {
+    margin-top: 30px;
+}
+
+.placeholder-text {
+    color: #aaa;
+    font-style: italic;
+    text-align: center;
+    padding: 20px;
+}
+
+.recommendation-items {
+    list-style-type: none;
+    padding: 0;
+}
+
+.recommendation-item {
+    background-color: rgba(40, 40, 40, 0.85); /* Slightly lighter than section background for depth */
+    border: 1px solid #555;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    padding: 15px;
+    display: flex; /* For side-by-side poster and details */
+    align-items: flex-start; /* Align items to the top */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    transition: transform 0.2s ease-in-out;
+}
+
+.recommendation-item:hover {
+    transform: translateY(-5px); /* Slight lift on hover */
+}
+
+.rec-poster {
+    flex-shrink: 0; /* Prevent poster from shrinking */
+    margin-right: 20px;
+}
+
+.rec-poster img {
+    width: 100px; /* Fixed width for poster */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 4px;
+    background-color: #333; /* Placeholder bg if image fails */
+}
+
+.rec-details h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #e1a0ff; /* A vibrant purple for titles */
+}
+
+.rec-details p {
+    margin-bottom: 8px;
+    font-size: 0.95em;
+    line-height: 1.6;
+}
+
+.rec-details p strong {
+    color: #bb86fc; /* Match label color for consistency */
+}
+
+@media (max-width: 600px) {
+    .recommendation-item {
+        flex-direction: column; /* Stack poster and details on small screens */
+        align-items: center; /* Center items when stacked */
+        text-align: center;
+    }
+    .rec-poster {
+        margin-right: 0;
+        margin-bottom: 15px; /* Space between poster and details when stacked */
+    }
+    .rec-poster img {
+        width: 150px; /* Slightly larger poster when stacked */
+    }
+}
